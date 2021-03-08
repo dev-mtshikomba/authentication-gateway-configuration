@@ -1,0 +1,9 @@
+[submodule "lumen-api-gateway"]
+	path = lumen-api-gateway
+	url = https://github.com/dev-mtshikomba/lumen-api-gateway
+[submodule "lumen-authors-api"]
+	path = lumen-authors-api
+	url = https://github.com/dev-mtshikomba/lumen-api-gateway
+[submodule "lumen-books-api"]
+	path = lumen-books-api
+	url = https://github.com/dev-mtshikomba/lumen-api-gateway

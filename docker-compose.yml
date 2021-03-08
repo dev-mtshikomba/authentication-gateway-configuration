@@ -19,15 +19,39 @@ services:
       - db_root_password
       - db_password
 
-  app:
-    build: .
-    container_name: app
-    hostname: app
+  gateway:
+    build: ./lumen-api-gateway
+    container_name: gateway
+    hostname: gateway
     restart: unless-stopped
     volumes:
       - ./src:/var/www/html
     ports:
-      - "80:80"
+      - "8001:80"
+    depends_on:
+      - mysql
+  
+  authors:
+    build: ./lumen-authors-api
+    container_name: authors
+    hostname: authors
+    restart: unless-stopped
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "8002:80"
+    depends_on:
+      - mysql
+  
+  authors:
+    build: ./lumen-books-api
+    container_name: books
+    hostname: books
+    restart: unless-stopped
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "8003:80"
     depends_on:
       - mysql
 
